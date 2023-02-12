@@ -17,7 +17,7 @@ public class Administracao implements Financeiro {
                 .filter((listaVendas -> listaVendas.getImovel().getStatus() == "Venda")).toList();
 
         for (Contrato comissaoTotalComissao : listaComissaTotalVenda) {
-             comissaoTotalVenda += comissaoTotalComissao.getValorTotal();
+             comissaoTotalVenda += comissaoTotalComissao.getPagamento().getValorTotal();
         }
 
         List<Contrato> listaComissaTotalAluguel = listaContratos.stream()
@@ -25,7 +25,7 @@ public class Administracao implements Financeiro {
 
 
         for (Contrato comissaoTotalComissao : listaComissaTotalAluguel) {
-            comissaoTotalVenda += comissaoTotalComissao.getValorTotal();
+            comissaoTotalVenda += comissaoTotalComissao.getPagamento().getValorTotal();
         }
 
         return this.comissao = comissaoTotalVenda;
@@ -35,15 +35,62 @@ public class Administracao implements Financeiro {
     public Double calcularContasAReceber() {
         Double totalVendido = 0.0;
         for (Contrato listaValorTotal : listaContratos) {
-            totalVendido += listaValorTotal.getValorTotal();
+            totalVendido += listaValorTotal.getPagamento().getValorTotal();
         }
 
         Double totalEntrada = 0.0;
         for (Contrato listaValorTotal : listaContratos) {
-            totalEntrada += listaValorTotal.getEntrada();
+            totalEntrada += listaValorTotal.getPagamento().getEntrada();
         }
 
         return this.contasAReceber = totalVendido - totalEntrada;
     }
 
+    public List<Imovel> getListaImoveisAluguel() {
+        return listaImoveisAluguel;
+    }
+
+    public void setListaImoveisAluguel(List<Imovel> listaImoveisAluguel) {
+        this.listaImoveisAluguel = listaImoveisAluguel;
+    }
+
+    public List<Imovel> getListaImoveisVenda() {
+        return listaImoveisVenda;
+    }
+
+    public void setListaImoveisVenda(List<Imovel> listaImoveisVenda) {
+        this.listaImoveisVenda = listaImoveisVenda;
+    }
+
+    public List<Imovel> getListaImoveis() {
+        return listaImoveis;
+    }
+
+    public void setListaImoveis(List<Imovel> listaImoveis) {
+        this.listaImoveis = listaImoveis;
+    }
+
+    public List<Contrato> getListaContratos() {
+        return listaContratos;
+    }
+
+    public void setListaContratos(List<Contrato> listaContratos) {
+        this.listaContratos = listaContratos;
+    }
+
+    public Double getComissao() {
+        return comissao;
+    }
+
+    public void setComissao(Double comissao) {
+        this.comissao = comissao;
+    }
+
+    public Double getContasAReceber() {
+        return contasAReceber;
+    }
+
+    public void setContasAReceber(Double contasAReceber) {
+        this.contasAReceber = contasAReceber;
+    }
 }
