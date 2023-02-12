@@ -5,6 +5,19 @@ public class Pagamento {
     private Double valorTotal;
     private Double entrada;
 
+    public void calcularValorTotal(Imovel imovel) {
+        if (imovel.getStatus().equals("Venda")) {
+            valorTotal = imovel.getValor() * (1 + (jurosVenda / 100));
+        } else {
+            if (quantidadeDeParcelas >= 12) {
+                Integer quantParcelasComJurosAnual = quantidadeDeParcelas - 12;
+                Double valorJurosTotal = quantParcelasComJurosAnual * imovel.getValor() * (IGPM / 100);
+                valorTotal = imovel.getValor() + valorJurosTotal;
+            } else {
+                valorTotal = imovel.getValor() + quantidadeDeParcelas;
+            }
+        }
+    }
 
     public Integer getQuantidadeDeParcelas() {
         return quantidadeDeParcelas;

@@ -9,22 +9,10 @@ public class Contrato{
         this.corretor = corretor;
         this.cliente = cliente;
         this.pagamento = pagamento;
-        calcularValorTotal();
+        pagamento.calcularValorTotal(this.imovel);
     }
 
-    public void calcularValorTotal() {
-        if (imovel.getStatus().equals("Venda")) {
-            pagamento.setValorTotal(imovel.getValor() * (1 + (pagamento.getJurosVenda() / 100)));
-        } else {
-            if (pagamento.getQuantidadeDeParcelas() >= 12) {
-                Integer quantParcelasComJurosAnual = pagamento.getQuantidadeDeParcelas() - 12;
-                Double valorJurosTotal = quantParcelasComJurosAnual * imovel.getValor() * (pagamento.getIGPM() / 100);
-                pagamento.setValorTotal(imovel.getValor() + valorJurosTotal);
-            } else {
-                pagamento.setValorTotal(imovel.getValor() + pagamento.getQuantidadeDeParcelas());
-            }
-        }
-    }
+
 
     public Imovel getImovel() {
         return imovel;
