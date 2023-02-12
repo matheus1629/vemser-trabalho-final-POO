@@ -36,4 +36,20 @@ public class Imovel {
     public void setValor(Double valor) {
         this.valor = valor;
     }
+
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }
+
+    public boolean getDisponibilidade() {
+        return disponibilidade;
+    }
+
+    public void setDisponibilidade(boolean disponibilidade) {
+        this.disponibilidade = disponibilidade;
+    }
 }
