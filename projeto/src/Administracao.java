@@ -2,23 +2,33 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Administracao implements Financeiro {
-    private List<ImovelAluguel> listaImoveisAluguel = new ArrayList<>();
-    private List<ImovelVenda> listaImoveisVenda = new ArrayList<>();
+    private List<Imovel> listaImoveisAluguel = new ArrayList<>();
+    private List<Imovel > listaImoveisVenda = new ArrayList<>();
+    private List<Imovel> listaImoveis = new ArrayList<>();
     private List<Contrato> listaContratos = new ArrayList<>();
-    private Double comissao; //fazer método pegando o valorTotal de ImovelVenda e ImovelAluguel e aplicar a comissão para cada tipo.
+    private Double comissao;
     private Double contasAReceber; // (quantidade de parcelas a serem recebidas)
 
     @Override
-    public Double calcularComissao(String corretor) { //
-        List<Contrato> listaComisao = listaContratos.stream()
-                .filter(corretorFiltro -> corretorFiltro.getCorretor().getNome() == corretor)
-                .toList();
+    public Double calcularTotalComissao() {
+        Double comissaoTotalVenda = 0.0;
 
-        for (Contrato listaValorComissao : listaComisao) {
-            this.comissao += listaValorComissao.getValorTotal();
+        List<Contrato> listaComissaTotalVenda = listaContratos.stream()
+                .filter((listaVendas -> listaVendas.getImovel().getStatus() == "Venda")).toList();
+
+        for (Contrato comissaoTotalComissao : listaComissaTotalVenda) {
+             comissaoTotalVenda += comissaoTotalComissao.getValorTotal();
         }
 
-        return this.comissao;
+        List<Contrato> listaComissaTotalAluguel = listaContratos.stream()
+                .filter((listaAlugueis -> listaAlugueis.getImovel().getStatus() == "Aluguel")).toList();
+
+
+        for (Contrato comissaoTotalComissao : listaComissaTotalAluguel) {
+            comissaoTotalVenda += comissaoTotalComissao.getValorTotal();
+        }
+
+        return this.comissao = comissaoTotalVenda;
     }
 
     @Override
@@ -35,4 +45,5 @@ public class Administracao implements Financeiro {
 
         return this.contasAReceber = totalVendido - totalEntrada;
     }
+
 }
