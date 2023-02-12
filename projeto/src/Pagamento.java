@@ -1,20 +1,21 @@
 public class Pagamento {
     private Integer quantidadeDeParcelas;
+    private Integer quantidadeDeParcelasJaPagas = 0;
     private final Double IGPM = 3.79;
     private Double jurosVenda;
     private Double valorTotal;
     private Double entrada;
 
     public void calcularValorTotal(Imovel imovel) {
-        if (imovel.getStatus().equals("Venda")) {
+        if (imovel.getStatus().toLowerCase().equals("venda")) {
             valorTotal = imovel.getValor() * (1 + (jurosVenda / 100));
         } else {
-            if (quantidadeDeParcelas >= 12) {
+            if (getQuantidadeDeParcelasJaPagas() >= 12) {
                 Integer quantParcelasComJurosAnual = quantidadeDeParcelas - 12;
                 Double valorJurosTotal = quantParcelasComJurosAnual * imovel.getValor() * (IGPM / 100);
                 valorTotal = imovel.getValor() + valorJurosTotal;
             } else {
-                valorTotal = imovel.getValor() + quantidadeDeParcelas;
+                valorTotal = imovel.getValor();
             }
         }
     }
@@ -53,5 +54,23 @@ public class Pagamento {
 
     public Double getEntrada() {
         return entrada;
+    }
+
+    public Integer getQuantidadeDeParcelasJaPagas() {
+        return quantidadeDeParcelasJaPagas;
+    }
+
+    private void setQuantidadeDeParcelasJaPagas(Integer quantidadeDeParcelasJaPagas) {
+        this.quantidadeDeParcelasJaPagas = quantidadeDeParcelasJaPagas;
+    }
+
+    public Double pagar(Imovel imovel){
+        setQuantidadeDeParcelasJaPagas(getQuantidadeDeParcelasJaPagas()+1);
+        if(imovel.getStatus().toLowerCase()=="venda"){
+            return getValorTotal()/getQuantidadeDeParcelas();
+        } else if (imovel.getStatus().toLowerCase()=="aluguel") {
+            return  getValorTotal();
+        }
+        return 0.0;
     }
 }

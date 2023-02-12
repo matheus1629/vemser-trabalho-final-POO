@@ -4,11 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1a0cf8b8-e887-47c5-9183-bc0c33622b08" name="Changes" comment="" />
+    <list default="true" id="1a0cf8b8-e887-47c5-9183-bc0c33622b08" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/projeto/src/Impressao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vemser-trabalho-final.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vemser-trabalho-final.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projeto/src/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/projeto/src/Cliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projeto/src/Corretor.java" beforeDir="false" afterPath="$PROJECT_DIR$/projeto/src/Corretor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projeto/src/Imovel.java" beforeDir="false" afterPath="$PROJECT_DIR$/projeto/src/Imovel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projeto/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/projeto/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projeto/src/Pagamento.java" beforeDir="false" afterPath="$PROJECT_DIR$/projeto/src/Pagamento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projeto/src/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/projeto/src/Usuario.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -26,7 +44,10 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "jdk.selected.JAVA_MODULE": "19",
-    "last_opened_file_path": "C:/Users/carolina.almeida/Documents/Vem Ser/Tasks/vemser-trabalho-final"
+    "last_opened_file_path": "C:/Users/carolina.almeida/Documents/Vem Ser/Tasks/vemser-trabalho-final",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
