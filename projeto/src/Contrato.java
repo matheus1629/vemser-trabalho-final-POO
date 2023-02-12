@@ -1,65 +1,60 @@
-import java.util.List;
-
-public class Contrato implements Pagamento {
-
-
-    private ImovelVenda imovelVenda;
-    private ImovelAluguel imovelAluguel;
-    private Integer quantidadeParcelas;
-    private final Double IGPM = 3.79;
-    private Double jurosVenda;
-    private Double valorTotal;
+public class Contrato{
+    private Imovel imovel;
     private Corretor corretor;
     private Cliente cliente;
-    private Double entrada;
+    private Pagamento pagamento;
 
-    public Contrato(ImovelVenda imovelVenda, Integer quantidadeParcelas, Double jurosVenda, Double valorTotal, Corretor corretor, Cliente cliente) {
-        this.imovelVenda = new ImovelVenda();
-        this.quantidadeParcelas = quantidadeParcelas;
-        this.jurosVenda = jurosVenda;
-        this.valorTotal = valorTotal;
+    public Contrato(Imovel imovel, Corretor corretor, Cliente cliente, Pagamento pagamento) {
+        this.imovel = imovel;
         this.corretor = corretor;
         this.cliente = cliente;
+        this.pagamento = pagamento;
         calcularValorTotal();
     }
 
-    public Contrato(ImovelAluguel imovelAluguel, Integer quantidadeParcelas, Double valorTotal, Corretor corretor, Cliente cliente) {
-        this.imovelAluguel = new ImovelAluguel();
-        this.quantidadeParcelas = quantidadeParcelas;
-        this.valorTotal = valorTotal;
-        this.corretor = corretor;
-        this.cliente = cliente;
-        calcularValorTotal();
-    }
-
-
-    @Override
-    public Double calcularValorTotal() {
-        if (imovelVenda != null) {
-            return valorTotal = imovelVenda.getValorImovel() * (jurosVenda / 100);
+    public void calcularValorTotal() {
+        if (imovel.getStatus().equals("Venda")) {
+            pagamento.setValorTotal(imovel.getValor() * (1 + (pagamento.getJurosVenda() / 100)));
         } else {
-            if (quantidadeParcelas >= 12) {
-                Integer quantParcelasComJurosAnual = quantidadeParcelas - 12;
-                Double valorJurosTotal = quantParcelasComJurosAnual * imovelVenda.getValorImovel() * (IGPM / 100);
-                return valorTotal = imovelAluguel.getValorAluguel() + valorJurosTotal;
+            if (pagamento.getQuantidadeDeParcelas() >= 12) {
+                Integer quantParcelasComJurosAnual = pagamento.getQuantidadeDeParcelas() - 12;
+                Double valorJurosTotal = quantParcelasComJurosAnual * imovel.getValor() * (pagamento.getIGPM() / 100);
+                pagamento.setValorTotal(imovel.getValor() + valorJurosTotal);
             } else {
-                return valorTotal = imovelAluguel.getValorAluguel() * quantidadeParcelas;
+                pagamento.setValorTotal(imovel.getValor() + pagamento.getQuantidadeDeParcelas());
             }
         }
     }
 
-    public void setCorretor(Corretor corretor) {
-        this.cliente = cliente;
+    public Imovel getImovel() {
+        return imovel;
     }
+
+    public Pagamento getPagamento() {
+        return pagamento;
+    }
+
+    public void setPagamento(Pagamento pagamento) {
+        this.pagamento = pagamento;
+    }
+
+    public void setImovel(Imovel imovel) {
+        this.imovel = imovel;
+    }
+
     public Corretor getCorretor() {
-        return this.corretor;
+        return corretor;
     }
 
-    public Double getValorTotal() {
-        return this.valorTotal;
+    public void setCorretor(Corretor corretor) {
+        this.corretor = corretor;
     }
 
-    public Double getEntrada() {
-        return entrada;
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
 }
