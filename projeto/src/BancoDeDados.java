@@ -3,9 +3,9 @@ import java.util.*;
 public class BancoDeDados {
     private List<Corretor> listaDeCorretores = new ArrayList<>();
     private List<Cliente> listaDeClientes = new ArrayList<>(
-            List.of(
-
-            )
+//            List.of(
+//
+//            )
     );
     private List<Imovel> listaDeImoveis = new ArrayList<>();
 
@@ -19,13 +19,13 @@ public class BancoDeDados {
     }
 
     public void adicionarImovel(Imovel imovel){this.listaDeImoveis.add(imovel);}
-    public void removerCorretor(Integer index){
-        this.listaDeCorretores.remove(index.intValue());
+    public void removerCorretor(Corretor corretor){
+        this.listaDeCorretores.remove(corretor);
     }
     public void removerCliente(Cliente cliente){
         this.listaDeClientes.remove(cliente);
     }
-    public void removerImovel(Integer index){this.listaDeImoveis.remove(index.intValue());}
+    public void removerImovel(Imovel imovel){this.listaDeImoveis.remove(imovel);}
 
     public void editarCliente(Integer index, Cliente cliente){
         Cliente buscaCliente = listaDeClientes.get(index);
@@ -76,7 +76,12 @@ public class BancoDeDados {
         return listaDeCorretores;
     }
 
-    public List<Imovel> getListaDeImoveis() {
-        return listaDeImoveis;
+    public Imovel getImovel(int codigo) {
+        for (Imovel imovel:listaDeImoveis) {
+            if(imovel.getCodigo()==codigo){
+                return imovel;
+            }
+        }
+        return null;
     }
 }

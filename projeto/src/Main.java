@@ -8,6 +8,7 @@ public class Main {
         Contato contato1 = new Contato("(11) 9 9988-7766", "contato1@email.com");
         Contato contato2 = new Contato("(11) 9 9988-7755", "contato2@email.com");
         Cliente cliente1 = new Cliente("Carol","111.111.111-11",contato1,"carolinaImobiliaria","c@r0linaImobiliaria");
+        Cliente cliente2 = new Cliente("Carol","111.111.111-11",contato1,"carolinaImobiliaria2","c@r0linaImobiliaria2");
         Corretor corretor1 = new Corretor("Matheus", "222.222.222-22",contato2, "matheusCorretor", "m@th3usCorretor");
         Endereco endereco1 = new Endereco("Rua teste1", "134", "40.000-000", "São Paulo", "SP", "Brasil");
         Endereco endereco2 = new Endereco("Rua teste2", "135", "40.000-100", "São Paulo", "SP", "Brasil");
@@ -31,6 +32,7 @@ public class Main {
         bd.adicionarImovel(imovelTesteAluguel);
         bd.adicionarImovel(imovelTesteVenda);
         bd.adicionarCliente(cliente1);
+        bd.adicionarCliente(cliente2);
         bd.adicionarCorretor(corretor1);
 
         int opc;
@@ -85,7 +87,7 @@ public class Main {
                         } else {
                             System.out.println("Opção inválida");
                         }
-                    }else if(opc == 2){
+                    }else if(cliente!=null && opc == 2){
                         adm.imprimirResumo();
                         System.out.println("Qual o código do imóvel desejado?");
                         opc=sc.nextInt();
@@ -162,9 +164,7 @@ public class Main {
                         System.out.println("Insira o código do imóvel a ser editado:");
                         opc = sc.nextInt();
                         sc.nextLine();
-                        int finalOpc1 = opc;
-                        List<Imovel> imovel = adm.getListaImoveis().stream().filter(imv->imv.getCodigo()== finalOpc1).toList();
-                        Imovel imovelEditar = imovel.get(0);
+                        Imovel imovelEditar = bd.getImovel(opc);
 
                         System.out.println("Qual informação gostaria de editar:\n1 - Tipo de contratação\n2 - Valor\n3 - Endereço\n");
                         opc = sc.nextInt();
@@ -220,47 +220,61 @@ public class Main {
                         System.out.println("Insira o código do imóvel a ser deletado:");
                         opc = sc.nextInt();
                         sc.nextLine();
-                        int finalOpc2 = opc;
-                        List<Imovel> imovelADeletar = adm.getListaImoveis().stream().filter(imv->imv.getCodigo()== finalOpc2).toList();
+                        Imovel imovelARemover = bd.getImovel(opc);
+                        bd.removerImovel(imovelARemover);
                     }else if(corretor!=null && opc==5){
-
+                        System.out.println("Qual informação você gostaria de editar?\n1 - Nome\n2 - CPF\n3 - email\n4 - telefone\n5 - nome de usuário\n6 - senha\n7 - Excluir meu cadastro");
+                        opc = sc.nextInt();
+                        sc.nextLine();
+                        if(opc==1){
+                            System.out.println("Novo nome:");
+                            corretor.setNome(sc.nextLine());
+                        }else if(opc==2){
+                            System.out.println("CPF correto:");
+                            corretor.setCpf(sc.nextLine());
+                        } else if (opc==3) {
+                            System.out.println("Novo email:");
+                            Contato contato = new Contato();
+                            contato = corretor.getContato();
+                            contato.setEmail(sc.nextLine());
+                            corretor.setContato(contato);
+                        } else if (opc==4) {
+                            System.out.println("Novo telefone:");
+                            Contato contato = corretor.getContato();
+                            contato.setTelefone(sc.nextLine());
+                            corretor.setContato(contato);
+                        } else if (opc==5) {
+                            System.out.println("Insira novo nome de usuário");
+                            corretor.setLoginUsuario(sc.nextLine());
+                        }else if(opc==6){
+                            System.out.println("Insira nova senha");
+                            corretor.setSenha(sc.nextLine());
+                        } else if (opc==7) {
+                            bd.removerCorretor(corretor);
+                        } else {
+                            System.out.println("Opção inválida");
+                        }
                     }
                 }else{
-                    Cliente cliente = new Cliente();
+                    Corretor corretor = new Corretor();
                     System.out.println("Insira seu nome:");
-                    cliente.setNome(sc.nextLine());
+                    corretor.setNome(sc.nextLine());
                     System.out.println("Insira seu cpf:");
-                    cliente.setCpf(sc.nextLine());
+                    corretor.setCpf(sc.nextLine());
                     System.out.println("Insira seu email:");
                     Contato contato = new Contato();
                     contato.setEmail(sc.nextLine());
                     System.out.println("Insira seu telefone: ");
                     contato.setTelefone(sc.nextLine());
-                    cliente.setContato(contato);
+                    corretor.setContato(contato);
                     System.out.println("Escolha um nome de usuário:");
-                    cliente.setLoginUsuario(sc.nextLine());
+                    corretor.setLoginUsuario(sc.nextLine());
                     System.out.println("Escolha uma senha: ");
-                    cliente.setSenha(sc.nextLine());
-                    bd.adicionarCliente(cliente);
+                    corretor.setSenha(sc.nextLine());
+                    bd.adicionarCorretor(corretor);
                 }
             }
         }while(opc!=3);
-
-
-
-
-
-
-
-//        System.out.println(adm.calcularContasAReceber());
-//        cliente1.imprimirResumo();
-
-        //cliente pode se cadastrar(no BD), ver listas de imoveis disponiveis, contratar um serviço e ver resumo da conta
-        //corretor pode cadastrar imóvel e ver resumo da conta
-        //adm cria contrato,
-
-
-
 
     }
 

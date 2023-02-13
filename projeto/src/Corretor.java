@@ -7,6 +7,7 @@ public class Corretor extends Usuario implements Impressao{
     List<Contrato> contratos = new ArrayList<>();
     private Double comissao;
 
+    public Corretor(){};
     public Corretor(String nome, String cpf, Contato contato, String loginUsuario, String senha) {
         super(nome, cpf, contato, loginUsuario, senha, "Corretor");
     }
