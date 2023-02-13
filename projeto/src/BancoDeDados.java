@@ -2,7 +2,9 @@ import java.util.*;
 
 public class BancoDeDados {
     private List<Corretor> listaDeCorretores = new ArrayList<>();
-    private List<Cliente> listaDeClientes = new ArrayList<>();
+    private List<Cliente> listaDeClientes = new ArrayList<>(
+            List.of()
+    );
     private List<Imovel> listaDeImoveis = new ArrayList<>();
 
 
@@ -66,5 +68,13 @@ public class BancoDeDados {
 
     public List<Cliente> getListaDeClientes() {
         return listaDeClientes;
+    }
+
+    public List<Corretor> getListaDeCorretores() {
+        return listaDeCorretores;
+    }
+
+    public List<Imovel> getListaDeImoveis() {
+        return listaDeImoveis;
     }
 }

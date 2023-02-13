@@ -103,23 +103,34 @@ public class Main {
                         adm.incluirNovoContrato(contrato);
                         cliente.imprimirResumo();
                     }
+                }else if(opc==2) {
+                    System.out.println("Selecione uma opção: \n1 - Cadastrar imóvel \n2 - Editar um imóvel \n3 - Listar todos os imóveis\n4 - Deletar um imóvel\n5 - Criar cadastro de corretor");
+                    opc = sc.nextInt();
+                    sc.nextLine();
+                    if(opc!=5){
+                        System.out.println("Entre com seu nome de usuário:");
+                        nomeUsuario = sc.nextLine();
+                        System.out.println("Entre com sua senha:");
+                        senha = sc.nextLine();
+                        Corretor corretor = Corretor.verificaCorretor(bd.getListaDeCorretores(),nomeUsuario,senha);
                 }else{
-                    Cliente cliente = new Cliente();
-                    System.out.println("Insira seu nome:");
-                    cliente.setNome(sc.nextLine());
-                    System.out.println("Insira seu cpf:");
-                    cliente.setCpf(sc.nextLine());
-                    System.out.println("Insira seu email:");
-                    Contato contato = new Contato();
-                    contato.setEmail(sc.nextLine());
-                    System.out.println("Insira seu telefone: ");
-                    contato.setTelefone(sc.nextLine());
-                    cliente.setContato(contato);
-                    System.out.println("Escolha um nome de usuário:");
-                    cliente.setLoginUsuario(sc.nextLine());
-                    System.out.println("Escolha uma senha: ");
-                    cliente.setSenha(sc.nextLine());
-                    bd.adicionarCliente(cliente);
+                        Cliente cliente = new Cliente();
+                        System.out.println("Insira seu nome:");
+                        cliente.setNome(sc.nextLine());
+                        System.out.println("Insira seu cpf:");
+                        cliente.setCpf(sc.nextLine());
+                        System.out.println("Insira seu email:");
+                        Contato contato = new Contato();
+                        contato.setEmail(sc.nextLine());
+                        System.out.println("Insira seu telefone: ");
+                        contato.setTelefone(sc.nextLine());
+                        cliente.setContato(contato);
+                        System.out.println("Escolha um nome de usuário:");
+                        cliente.setLoginUsuario(sc.nextLine());
+                        System.out.println("Escolha uma senha: ");
+                        cliente.setSenha(sc.nextLine());
+                        bd.adicionarCliente(cliente);
+                    }
                 }
             }
         }while(opc!=3);
