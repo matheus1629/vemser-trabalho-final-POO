@@ -11,16 +11,41 @@ public class Main {
         int opcao = 0;
         int opcaoCliente =0;
         int tipo;
+
         BancoDeDados manipularBanco = new BancoDeDados();
 
         Endereco endereco1 = new Endereco();
-        endereco1.setLogradouro("rua");
-        endereco1.setLogradouro("numero");
-        endereco1.setLogradouro("cidade");
-        endereco1.setLogradouro("estado");
-        endereco1.setLogradouro("pais");
+        endereco1.setLogradouro("AV Maurício Cardoso");
+        endereco1.setNumero("1024");
+        endereco1.setCidade("Novo Hamburgo");
+        endereco1.setEstado("Rio Grande Do Sul");
+        endereco1.setPais("Brasil");
 
-        Imovel imovel1 = new Imovel(endereco1,"Disponível",120,1024,130000.00,"Aluguel");
+        Endereco endereco2 = new Endereco();
+        endereco2.setLogradouro("Rua Bartolomeu de Gusmão");
+        endereco2.setNumero("124");
+        endereco2.setCidade("Novo Hamburgo");
+        endereco2.setEstado("Rio Grande Do Sul");
+        endereco2.setPais("Brasil");
+
+        Endereco endereco3 = new Endereco();
+        endereco3.setLogradouro("AV Assis Brasil");
+        endereco3.setNumero("2744");
+        endereco3.setCidade("Novo Hamburgo");
+        endereco3.setEstado("Rio Grande Do Sul");
+        endereco3.setPais("Brasil");
+
+        Endereco endereco4 = new Endereco();
+        endereco4.setLogradouro("Rua Indaial");
+        endereco4.setNumero("878");
+        endereco4.setCidade("Novo Hamburgo");
+        endereco4.setEstado("Rio Grande Do Sul");
+        endereco4.setPais("Brasil");
+
+        Imovel imovel1 = new Imovel(endereco1,"Disponível",120,1001,150000.00,"Aluguel");
+        Imovel imovel2 = new Imovel(endereco2,"Indisponível",80,1002,135000.00,"Venda");
+        Imovel imovel3 = new Imovel(endereco3,"Disponível",100,1003,80000.00,"Venda");
+        Imovel imovel4 = new Imovel(endereco4,"Indisponível",90,1004,250000.00,"Aluguel");
 
         Cliente cliente = new Cliente();
 
@@ -30,7 +55,29 @@ public class Main {
             senha = scan.nextLine();
             scan.nextLine();
 
+        if(login.equals("cliente") && senha.equals("1234")){
 
+            System.out.println("[1] Listar imóveis para alugar ");
+            System.out.println("[2] Listar imóveis para venda");
+            manipularBanco.adicionarImovel(imovel1);
+            manipularBanco.adicionarImovel(imovel2);
+            manipularBanco.adicionarImovel(imovel3);
+            manipularBanco.adicionarImovel(imovel4);
+            opcao = scan.nextInt();
+            switch(opcao){
+                case 1:
+                   manipularBanco.listarImoveis();
+                    break;
+                case 2:
+
+            }
+        }
+        else if(login.equals("corretor") && senha.equals("4321")){
+            System.out.println("[1] Criar imovel");
+            System.out.println("[2] Editar imovel");
+            System.out.println("[3] Excluir imovel ");
+        }
+        else{System.out.println("Senha ou login inválidos");}
 //        int opcao = 0;
 //        while (opcao != 9) {
 //            System.out.println("   MENU"    );
@@ -43,8 +90,7 @@ public class Main {
 //            scan.nextLine();
 //            switch (opcao) {
 //                case 1:
-//                    System.out.println("[1] Listar imóveis para alugar ");
-//                    System.out.println("[2] Listar imóveis para venda");
+
 //
 //
 ////                    Endereco endereco = new Endereco();

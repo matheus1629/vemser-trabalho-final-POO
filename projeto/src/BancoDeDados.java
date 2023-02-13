@@ -5,6 +5,7 @@ public class BancoDeDados {
     private List<Cliente> listaDeClientes = new ArrayList<>();
     private List<Imovel> listaDeImoveis = new ArrayList<>();
 
+
     public void adicionarCorretor(Corretor corretor){
         this.listaDeCorretores.add(corretor);
     }
@@ -53,4 +54,15 @@ public class BancoDeDados {
             System.out.println("id=" + i + " | " + listaDeCorretores.get(i));
         }
     }
+
+    public void listarImoveis() {
+        for (int i = 0; i < listaDeImoveis.size(); i++) {
+            if(listaDeImoveis.contains("Aluguel")){
+                System.out.println(listaDeImoveis.contains("Aluguel"));
+            }
+           // System.out.println(listaDeImoveis.get(i));
+        }
+    }
+
+
 }

@@ -62,4 +62,12 @@ public class Imovel {
     public void setStatus(String status) {
         this.status = status;
     }
+
+    @Override
+    public String toString() {
+        return
+                "Tipo Imovel: " + getStatus() +", " +
+                "Valor Imovel: " + getValor() +", " +
+                "Disponibilidade: " + getDisponibilidade();
+    }
 }
