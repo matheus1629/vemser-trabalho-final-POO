@@ -73,6 +73,11 @@ public class Administracao implements Financeiro,Impressao {
     public List<Imovel> getListaImoveis() {
         return listaImoveis;
     }
+    public void listarImoveis(){
+        for (Imovel imovel:listaImoveis) {
+            System.out.printf("Imóvel %d - Tipo de contratação: %s\n",imovel.getCodigo(), imovel.getStatus());
+        }
+    }
 
     private void incluirNovoImovel(Imovel imovel) {
         this.listaImoveis.add(imovel);

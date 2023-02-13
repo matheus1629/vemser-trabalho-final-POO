@@ -7,6 +7,7 @@ public class Imovel {
     private Double valor;
     private String status;
 
+    public Imovel(){};
     public Imovel(Endereco endereco,int codigo, Double valor, String status) {
         this.endereco = endereco;
         this.disponibilidade = true;

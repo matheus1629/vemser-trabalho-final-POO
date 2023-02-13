@@ -3,7 +3,9 @@ import java.util.*;
 public class BancoDeDados {
     private List<Corretor> listaDeCorretores = new ArrayList<>();
     private List<Cliente> listaDeClientes = new ArrayList<>(
-            List.of()
+            List.of(
+
+            )
     );
     private List<Imovel> listaDeImoveis = new ArrayList<>();
 

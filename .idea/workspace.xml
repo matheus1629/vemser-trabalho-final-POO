@@ -6,6 +6,17 @@
   <component name="ChangeListManager">
     <list default="true" id="1a0cf8b8-e887-47c5-9183-bc0c33622b08" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/vemser-trabalho-final/Administracao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/vemser-trabalho-final/Administracao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/vemser-trabalho-final/BancoDeDados.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/vemser-trabalho-final/BancoDeDados.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/vemser-trabalho-final/Corretor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/vemser-trabalho-final/Corretor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/vemser-trabalho-final/Endereco.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/vemser-trabalho-final/Endereco.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/vemser-trabalho-final/Imovel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/vemser-trabalho-final/Imovel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/vemser-trabalho-final/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/vemser-trabalho-final/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projeto/src/Administracao.java" beforeDir="false" afterPath="$PROJECT_DIR$/projeto/src/Administracao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projeto/src/BancoDeDados.java" beforeDir="false" afterPath="$PROJECT_DIR$/projeto/src/BancoDeDados.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projeto/src/Corretor.java" beforeDir="false" afterPath="$PROJECT_DIR$/projeto/src/Corretor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projeto/src/Endereco.java" beforeDir="false" afterPath="$PROJECT_DIR$/projeto/src/Endereco.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projeto/src/Imovel.java" beforeDir="false" afterPath="$PROJECT_DIR$/projeto/src/Imovel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projeto/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/projeto/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
