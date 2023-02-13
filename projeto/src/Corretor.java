@@ -12,7 +12,7 @@ public class Corretor extends Usuario implements Impressao{
     }
     public static Corretor verificaCorretor(List<Corretor>corretores, String loginUsuario, String senha){
         for (Corretor corretor:corretores) {
-            if(corretor.getSenha()==senha&&corretor.getLoginUsuario()==loginUsuario){
+            if(corretor.getSenha().equals(senha)&&corretor.getLoginUsuario().equals(loginUsuario)){
                 return corretor;
             }
         };

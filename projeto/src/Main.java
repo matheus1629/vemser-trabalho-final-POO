@@ -103,34 +103,145 @@ public class Main {
                         adm.incluirNovoContrato(contrato);
                         cliente.imprimirResumo();
                     }
-                }else if(opc==2) {
-                    System.out.println("Selecione uma opção: \n1 - Cadastrar imóvel \n2 - Editar um imóvel \n3 - Listar todos os imóveis\n4 - Deletar um imóvel\n5 - Criar cadastro de corretor");
-                    opc = sc.nextInt();
-                    sc.nextLine();
-                    if(opc!=5){
-                        System.out.println("Entre com seu nome de usuário:");
-                        nomeUsuario = sc.nextLine();
-                        System.out.println("Entre com sua senha:");
-                        senha = sc.nextLine();
-                        Corretor corretor = Corretor.verificaCorretor(bd.getListaDeCorretores(),nomeUsuario,senha);
                 }else{
-                        Cliente cliente = new Cliente();
-                        System.out.println("Insira seu nome:");
-                        cliente.setNome(sc.nextLine());
-                        System.out.println("Insira seu cpf:");
-                        cliente.setCpf(sc.nextLine());
-                        System.out.println("Insira seu email:");
-                        Contato contato = new Contato();
-                        contato.setEmail(sc.nextLine());
-                        System.out.println("Insira seu telefone: ");
-                        contato.setTelefone(sc.nextLine());
-                        cliente.setContato(contato);
-                        System.out.println("Escolha um nome de usuário:");
-                        cliente.setLoginUsuario(sc.nextLine());
-                        System.out.println("Escolha uma senha: ");
-                        cliente.setSenha(sc.nextLine());
-                        bd.adicionarCliente(cliente);
+                    Cliente novoCliente = new Cliente();
+                    System.out.println("Insira seu nome:");
+                    novoCliente.setNome(sc.nextLine());
+                    System.out.println("Insira seu CPF:");
+                    novoCliente.setCpf(sc.nextLine());
+                    Contato novoContato = new Contato();
+                    System.out.println("Insira seu email para contato:");
+                    novoContato.setEmail(sc.nextLine());
+                    System.out.println("Insira seu telefone para contato:");
+                    novoContato.setTelefone(sc.nextLine());
+                    novoCliente.setContato(novoContato);
+                    System.out.println("Insira seu nome de usuário:");
+                    novoCliente.setLoginUsuario(sc.nextLine());
+                    System.out.println("Insira sua senha:");
+                    novoCliente.setSenha(sc.nextLine());
+                    bd.adicionarCliente(novoCliente);
+                }
+            }else if(opc==2){
+                System.out.println("Selecione uma opção: \n1 - Cadastrar imóvel \n2 - Editar um imóvel \n3 - Listar meus imóveis\n4 - Deletar um imóvel\n5 - Editar meu cadastro\n6 - Criar cadastro de corretor");
+                opc = sc.nextInt();
+                sc.nextLine();
+                if(opc!=6){
+                    System.out.println("Entre com seu nome de usuário:");
+                    nomeUsuario = sc.nextLine();
+                    System.out.println("Entre com sua senha:");
+                    senha = sc.nextLine();
+                    Corretor corretor = Corretor.verificaCorretor(bd.getListaDeCorretores(),nomeUsuario,senha);
+                    if(corretor!=null && opc==1){
+                        Endereco enderecoParaCadastro = new Endereco();
+                        System.out.print("Digite o logradouro do imóvel: ");
+                        enderecoParaCadastro.setLogradouro(sc.nextLine());
+                        System.out.print("Digite o número do imóvel: ");
+                        enderecoParaCadastro.setNumero(sc.nextLine());
+                        System.out.print("Digite o CEP do imóvel: ");
+                        enderecoParaCadastro.setCep(sc.nextLine());
+                        System.out.print("Digite a cidade do imóvel: ");
+                        enderecoParaCadastro.setCidade(sc.nextLine());
+                        System.out.print("Digite o estado do imóvel: ");
+                        enderecoParaCadastro.setEstado(sc.nextLine());
+                        System.out.print("Digite o país do imóvel: ");
+                        enderecoParaCadastro.setPais(sc.nextLine());
+                        Imovel imovelParaCadastro = new Imovel();
+                        imovelParaCadastro.setEndereco(enderecoParaCadastro);
+                        System.out.print("Digite a quantidade de cômodos: ");
+                        imovelParaCadastro.setQuantidadeDeComodos(sc.nextInt());
+                        System.out.print("Digite o código do imóvel: ");
+                        imovelParaCadastro.setCodigo(sc.nextInt());
+                        System.out.print("Digite o valor do imóvel: ");
+                        imovelParaCadastro.setValor(sc.nextDouble());
+                        System.out.print("O imóvel é para aluguel ou venda? ");
+                        imovelParaCadastro.setStatus(sc.nextLine().toLowerCase());
+                        adm.cadastrarNovoImovel(imovelParaCadastro);
+                        bd.adicionarImovel(imovelParaCadastro);
+                    } else if (corretor!=null && opc==2){
+                        adm.listarImoveis();
+                        System.out.println("Insira o código do imóvel a ser editado:");
+                        opc = sc.nextInt();
+                        sc.nextLine();
+                        int finalOpc1 = opc;
+                        List<Imovel> imovel = adm.getListaImoveis().stream().filter(imv->imv.getCodigo()== finalOpc1).toList();
+                        Imovel imovelEditar = imovel.get(0);
+
+                        System.out.println("Qual informação gostaria de editar:\n1 - Tipo de contratação\n2 - Valor\n3 - Endereço\n");
+                        opc = sc.nextInt();
+                        sc.nextLine();
+                        if(opc ==1){
+                            System.out.println("Insira o tipo de contrato para o imóvel: aluguel ou venda?");
+                            imovelEditar.setStatus(sc.nextLine());
+                        }else if(opc==2){
+                            System.out.printf("O valor atual é de R$%.2f",imovelEditar.getValor());
+                            System.out.println("Qual o novo valor?");
+                            imovelEditar.setValor(sc.nextDouble());
+                            sc.nextLine();
+                        }else {
+                            System.out.println("Qual campo gostaria de mudar no endereço?\n1 - Logradouro\n2 - Número\n3 - CEP\n4 - Cidade\n5 - Estado\n6 - País");
+                            opc=sc.nextInt();
+                            sc.nextLine();
+                            if(opc==1){
+                                System.out.println("Digite novo logradouro:");
+                                Endereco enderecoAux = imovelEditar.getEndereco();
+                                enderecoAux.setLogradouro(sc.nextLine());
+                                imovelEditar.setEndereco(enderecoAux);
+                            } else if (opc==2) {
+                                System.out.println("Digite novo número do endereço:");
+                                Endereco enderecoAux = imovelEditar.getEndereco();
+                                enderecoAux.setNumero(sc.nextLine());
+                                imovelEditar.setEndereco(enderecoAux);
+                            }else if (opc==3) {
+                                System.out.println("Digite novo CEP:");
+                                Endereco enderecoAux = imovelEditar.getEndereco();
+                                enderecoAux.setCep(sc.nextLine());
+                                imovelEditar.setEndereco(enderecoAux);
+                            }else if (opc==4) {
+                                System.out.println("Digite nova cidade:");
+                                Endereco enderecoAux = imovelEditar.getEndereco();
+                                enderecoAux.setCidade(sc.nextLine());
+                                imovelEditar.setEndereco(enderecoAux);
+                            }else if (opc==5) {
+                                System.out.println("Digite novo estado:");
+                                Endereco enderecoAux = imovelEditar.getEndereco();
+                                enderecoAux.setEstado(sc.nextLine());
+                                imovelEditar.setEndereco(enderecoAux);
+                            }else {
+                                System.out.println("Digite novo país:");
+                                Endereco enderecoAux = imovelEditar.getEndereco();
+                                enderecoAux.setPais(sc.nextLine());
+                                imovelEditar.setEndereco(enderecoAux);
+                            }
+                        }
+                    }else if(corretor!=null && opc==3){
+                        corretor.imprimirResumo();
+                    }else if(corretor!=null && opc==4){
+                        adm.listarImoveis();
+                        System.out.println("Insira o código do imóvel a ser deletado:");
+                        opc = sc.nextInt();
+                        sc.nextLine();
+                        int finalOpc2 = opc;
+                        List<Imovel> imovelADeletar = adm.getListaImoveis().stream().filter(imv->imv.getCodigo()== finalOpc2).toList();
+                    }else if(corretor!=null && opc==5){
+
                     }
+                }else{
+                    Cliente cliente = new Cliente();
+                    System.out.println("Insira seu nome:");
+                    cliente.setNome(sc.nextLine());
+                    System.out.println("Insira seu cpf:");
+                    cliente.setCpf(sc.nextLine());
+                    System.out.println("Insira seu email:");
+                    Contato contato = new Contato();
+                    contato.setEmail(sc.nextLine());
+                    System.out.println("Insira seu telefone: ");
+                    contato.setTelefone(sc.nextLine());
+                    cliente.setContato(contato);
+                    System.out.println("Escolha um nome de usuário:");
+                    cliente.setLoginUsuario(sc.nextLine());
+                    System.out.println("Escolha uma senha: ");
+                    cliente.setSenha(sc.nextLine());
+                    bd.adicionarCliente(cliente);
                 }
             }
         }while(opc!=3);

@@ -6,6 +6,7 @@ public class Endereco {
     private String estado;
     private String pais;
 
+    public Endereco(){};
     public Endereco(String logradouro, String numero, String cep, String cidade, String estado, String pais) {
         this.logradouro = logradouro;
         this.numero = numero;
