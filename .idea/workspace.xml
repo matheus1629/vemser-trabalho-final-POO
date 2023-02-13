@@ -4,78 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1a0cf8b8-e887-47c5-9183-bc0c33622b08" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/vemser-trabalho-final/Administracao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/vemser-trabalho-final/Administracao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/vemser-trabalho-final/BancoDeDados.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/vemser-trabalho-final/BancoDeDados.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/vemser-trabalho-final/Corretor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/vemser-trabalho-final/Corretor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/vemser-trabalho-final/Endereco.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/vemser-trabalho-final/Endereco.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/vemser-trabalho-final/Imovel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/vemser-trabalho-final/Imovel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/vemser-trabalho-final/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/vemser-trabalho-final/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projeto/src/Administracao.java" beforeDir="false" afterPath="$PROJECT_DIR$/projeto/src/Administracao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projeto/src/BancoDeDados.java" beforeDir="false" afterPath="$PROJECT_DIR$/projeto/src/BancoDeDados.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projeto/src/Corretor.java" beforeDir="false" afterPath="$PROJECT_DIR$/projeto/src/Corretor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projeto/src/Endereco.java" beforeDir="false" afterPath="$PROJECT_DIR$/projeto/src/Endereco.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projeto/src/Imovel.java" beforeDir="false" afterPath="$PROJECT_DIR$/projeto/src/Imovel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projeto/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/projeto/src/Main.java" afterDir="false" />
-    </list>
+    <list default="true" id="ce3ee262-2b6d-45c0-b6bb-c98226656418" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Interface" />
-      </list>
-    </option>
-  </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="MarkdownSettingsMigration">
-    <option name="stateVersion" value="1" />
-  </component>
-  <component name="ProjectId" id="2LUMkt8cLYSEBn9L38JU7j3KkJr" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "jdk.selected.JAVA_MODULE": "19",
-    "last_opened_file_path": "C:/Users/carolina.almeida/Documents/Vem Ser/Tasks/vemser-trabalho-final",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2"
-  }
-}]]></component>
-  <component name="RunManager">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="vemser-trabalho-final" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.Main" />
-      </list>
-    </recent_temporary>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="1a0cf8b8-e887-47c5-9183-bc0c33622b08" name="Changes" comment="" />
-      <created>1675921354062</created>
+      <changelist id="ce3ee262-2b6d-45c0-b6bb-c98226656418" name="Changes" comment="" />
+      <created>1676296769930</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1675921354062</updated>
+      <updated>1676296769930</updated>
+      <workItem from="1676296771026" duration="1235000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
 </project>
