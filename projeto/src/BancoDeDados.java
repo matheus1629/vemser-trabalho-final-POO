@@ -54,8 +54,8 @@ public class BancoDeDados {
     }
 
     public void listarCorretores() {
-        for (int i = 0; i < listaDeCorretores.size(); i++) {
-            System.out.println("id=" + i + " | " + listaDeCorretores.get(i));
+        for (Corretor corretor: listaDeCorretores) {
+            System.out.println(corretor.getNome());
         }
     }
 
