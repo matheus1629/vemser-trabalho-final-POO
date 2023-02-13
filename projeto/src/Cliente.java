@@ -33,18 +33,21 @@ public class Cliente extends Usuario implements Impressao{
 
     @Override
     public void imprimirResumo() {
+
         System.out.println("Contratos de Aluguel:");
         for (Contrato contrato:contratos) {
             if(contrato.getImovel().getStatus().toLowerCase()=="aluguel"){
                 System.out.println("Imóvel "+ contrato.getImovel().getCodigo()+" - R$"+contrato.getPagamento().getValorTotal() +"/mês");
                 System.out.println("Meses de locação: "+ contrato.getPagamento().getQuantidadeDeParcelasJaPagas() );
+                System.out.println("=====================");
             }
         }
         System.out.println("Contratos de Venda:");
         for (Contrato contrato:contratos) {
             if(contrato.getImovel().getStatus().toLowerCase()=="venda"){
-                System.out.println("Imóvel "+ contrato.getImovel().getCodigo()+" - R$"+contrato.getPagamento().getValorTotal());
-                System.out.println("Valor já pago: R$"+ contrato.getPagamento().getQuantidadeDeParcelasJaPagas()*contrato.getPagamento().getValorTotal()/contrato.getPagamento().getQuantidadeDeParcelas());
+                System.out.println("Imóvel "+ contrato.getImovel().getCodigo()+" - R$"+contrato.getPagamento().getValorTotal()+" com juros");
+                System.out.println("Valor já pago: Entrada R$"+contrato.getPagamento().getEntrada()+" Parcelas pagas R$"+ (contrato.getPagamento().getQuantidadeDeParcelasJaPagas()*contrato.getPagamento().getValorTotal()/contrato.getPagamento().getQuantidadeDeParcelas()));
+                System.out.println("=====================");
             }
         }
 

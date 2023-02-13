@@ -4,7 +4,11 @@ public class Pagamento {
     private final Double IGPM = 3.79;
     private Double jurosVenda;
     private Double valorTotal;
-    private Double entrada;
+    private Double entrada = 0.0;
+
+    public Pagamento(){
+
+    }
 
     public void calcularValorTotal(Imovel imovel) {
         if (imovel.getStatus().toLowerCase().equals("venda")) {

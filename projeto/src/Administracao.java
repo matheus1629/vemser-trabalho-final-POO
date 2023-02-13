@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Administracao implements Financeiro {
+public class Administracao implements Financeiro,Impressao {
     private List<Imovel> listaImoveisAluguel = new ArrayList<>();
     private List<Imovel > listaImoveisVenda = new ArrayList<>();
     private List<Imovel> listaImoveis = new ArrayList<>();
@@ -11,24 +11,24 @@ public class Administracao implements Financeiro {
 
     @Override
     public Double calcularTotalComissao() {
-        Double comissaoTotalVenda = 0.0;
+        Double comissaoTotal = 0.0;
 
         List<Contrato> listaComissaTotalVenda = listaContratos.stream()
-                .filter((listaVendas -> listaVendas.getImovel().getStatus() == "Venda")).toList();
+                .filter((listaVendas -> listaVendas.getImovel().getStatus().toLowerCase() == "venda")).toList();
 
         for (Contrato comissaoTotalComissao : listaComissaTotalVenda) {
-             comissaoTotalVenda += comissaoTotalComissao.getPagamento().getValorTotal();
+             comissaoTotal += comissaoTotalComissao.getImovel().getValor()*0.01;
         }
 
-        List<Contrato> listaComissaTotalAluguel = listaContratos.stream()
-                .filter((listaAlugueis -> listaAlugueis.getImovel().getStatus() == "Aluguel")).toList();
+        List<Contrato> listaComissaoTotalAluguel = listaContratos.stream()
+                .filter((listaAlugueis -> listaAlugueis.getImovel().getStatus().toLowerCase() == "aluguel")).toList();
 
 
-        for (Contrato comissaoTotalComissao : listaComissaTotalAluguel) {
-            comissaoTotalVenda += comissaoTotalComissao.getPagamento().getValorTotal();
+        for (Contrato comissaoTotalAluguel : listaComissaoTotalAluguel) {
+            comissaoTotal += comissaoTotalAluguel.getImovel().getValor()*0.2;
         }
 
-        return this.comissao = comissaoTotalVenda;
+        return this.comissao = comissaoTotal;
     }
 
     @Override
@@ -50,47 +50,66 @@ public class Administracao implements Financeiro {
         return listaImoveisAluguel;
     }
 
-    public void setListaImoveisAluguel(List<Imovel> listaImoveisAluguel) {
-        this.listaImoveisAluguel = listaImoveisAluguel;
+    private void incluirNovoImovelAluguel(Imovel imovelAluguel) {
+        this.listaImoveisAluguel.add(imovelAluguel);
     }
 
     public List<Imovel> getListaImoveisVenda() {
         return listaImoveisVenda;
     }
 
-    public void setListaImoveisVenda(List<Imovel> listaImoveisVenda) {
-        this.listaImoveisVenda = listaImoveisVenda;
+    private void incluirNovoImovelVenda(Imovel imovelVenda) {
+        this.listaImoveisVenda.add(imovelVenda);
     }
 
     public List<Imovel> getListaImoveis() {
         return listaImoveis;
     }
 
-    public void setListaImoveis(List<Imovel> listaImoveis) {
-        this.listaImoveis = listaImoveis;
+    private void incluirNovoImovel(Imovel imovel) {
+        this.listaImoveis.add(imovel);
     }
 
     public List<Contrato> getListaContratos() {
         return listaContratos;
     }
 
-    public void setListaContratos(List<Contrato> listaContratos) {
-        this.listaContratos = listaContratos;
+    public void incluirNovoContrato(Contrato contrato) {
+        this.listaContratos.add(contrato);
     }
 
     public Double getComissao() {
         return comissao;
     }
 
-    public void setComissao(Double comissao) {
-        this.comissao = comissao;
-    }
+//    public void setComissao(Double comissao) {
+//        this.comissao = comissao;
+//    }
 
     public Double getContasAReceber() {
         return contasAReceber;
     }
 
-    public void setContasAReceber(Double contasAReceber) {
-        this.contasAReceber = contasAReceber;
+//    public void setContasAReceber(Double contasAReceber) {
+//        this.contasAReceber = contasAReceber;
+//    }
+
+    public void cadastrarNovoImovel(Imovel imovel){
+        incluirNovoImovel(imovel);
+        if(imovel.getStatus().toLowerCase()=="aluguel"){
+            incluirNovoImovelAluguel(imovel);
+        }else {
+            incluirNovoImovelVenda(imovel);
+        }
+    }
+
+    @Override
+    public void imprimirResumo() {
+        System.out.println("Meus imóveis disponíveis: ");
+        for (Imovel imovel: listaImoveis) {
+            if(imovel.getDisponibilidade()){
+                System.out.println("Imóvel "+imovel.getCodigo()+" disponível para "+imovel.getStatus());
+            }
+        }
     }
 }
