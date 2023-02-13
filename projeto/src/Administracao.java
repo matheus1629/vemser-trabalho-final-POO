@@ -35,13 +35,20 @@ public class Administracao implements Financeiro,Impressao {
     public Double calcularContasAReceber() {
         Double totalVendido = 0.0;
         for (Contrato listaValorTotal : listaContratos) {
-            totalVendido += listaValorTotal.getPagamento().getValorTotal();
-        }
+            if(listaValorTotal.getImovel().getStatus().toLowerCase()=="venda"){
+                totalVendido += listaValorTotal.getPagamento().getValorTotal();
+            }else{
+                totalVendido += listaValorTotal.getPagamento().getValorTotal()*listaValorTotal.getPagamento().getQuantidadeDeParcelas();
+            }
 
-        System.out.println(totalVendido);
+        }
         Double totalEntrada = 0.0;
         for (Contrato listaValorTotal : listaContratos) {
-            totalEntrada += listaValorTotal.getPagamento().getEntrada();
+            if(listaValorTotal.getImovel().getStatus().toLowerCase()=="venda"){
+                totalEntrada += listaValorTotal.getPagamento().getEntrada();
+            }else {
+                totalEntrada += listaValorTotal.getPagamento().getQuantidadeDeParcelasJaPagas()*listaValorTotal.getPagamento().getValorTotal();
+            }
         }
 
         return this.contasAReceber = totalVendido - totalEntrada;

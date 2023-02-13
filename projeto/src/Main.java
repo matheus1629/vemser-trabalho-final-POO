@@ -17,19 +17,13 @@ public class Main {
         pagamento1.setQuantidadeDeParcelas(3);
         Contrato contratoTesteVenda = new Contrato(imovelTesteVenda,corretor1,cliente1,pagamento1);
         adm.incluirNovoContrato(contratoTesteVenda);
-//        Pagamento pagamento2 = new Pagamento();
-//        pagamento2.setQuantidadeDeParcelas(12);
-//        Contrato contratoTesteAluguel = new Contrato(imovelTesteAluguel,corretor1,cliente1,pagamento2);
-//        adm.incluirNovoContrato(contratoTesteAluguel);
+        Pagamento pagamento2 = new Pagamento();
+        pagamento2.setQuantidadeDeParcelas(12);
+        Contrato contratoTesteAluguel = new Contrato(imovelTesteAluguel,corretor1,cliente1,pagamento2);
+        adm.incluirNovoContrato(contratoTesteAluguel);
 
+        System.out.println(adm.calcularContasAReceber());
         cliente1.imprimirResumo();
-        cliente1.pagarParcela();
-        cliente1.imprimirResumo();
-        cliente1.pagarParcela();
-        cliente1.imprimirResumo();
-        corretor1.imprimirResumo();
-//        System.out.println(adm.calcularContasAReceber());
-
 
         //cliente pode se cadastrar(no BD), ver listas de imoveis disponiveis, contratar um serviço e ver resumo da conta
         //corretor pode cadastrar imóvel e ver resumo da conta
