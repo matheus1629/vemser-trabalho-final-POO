@@ -19,7 +19,8 @@ public class Contrato{
         imovel.setDisponibilidade(false);
     }
 
-
+    public Contrato() {
+    }
 
     public Imovel getImovel() {
         return imovel;
