@@ -133,7 +133,6 @@ public class Main {
 
                             }
                             adm.incluirNovoContrato(contrato);
-                            cliente.imprimirResumo();
 
                         }
                     } else {
@@ -154,7 +153,8 @@ public class Main {
                         novoCliente.setSenha(sc.nextLine());
                         bd.adicionarCliente(novoCliente);
                     }
-                } else if (opc == 2) {
+                } opc = 1;
+            } else if (opc == 2) {
                     System.out.println("Selecione uma opção: \n1 - Cadastrar imóvel \n2 - Editar um imóvel \n3 - Listar meus imóveis\n4 - Deletar um imóvel\n5 - Editar meu cadastro\n6 - Criar cadastro de corretor");
                     opc = sc.nextInt();
                     sc.nextLine();
@@ -304,8 +304,9 @@ public class Main {
                         corretor.setSenha(sc.nextLine());
                         bd.adicionarCorretor(corretor);
                     }
+                    opc=2;
                 }
-            }
+
         } while (opc != 3);
 
 

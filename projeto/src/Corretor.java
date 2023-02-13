@@ -5,7 +5,7 @@ public class Corretor extends Usuario implements Impressao{
     List<Imovel> imoveisAluguel = new ArrayList<>();
     List<Imovel> imoveisVenda = new ArrayList<>();
     List<Contrato> contratos = new ArrayList<>();
-    private Double comissao;
+    private Double comissao = 0.0;
 
     public Corretor(){};
     public Corretor(String nome, String cpf, Contato contato, String loginUsuario, String senha) {
