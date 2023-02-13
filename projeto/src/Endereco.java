@@ -6,6 +6,15 @@ public class Endereco {
     private String estado;
     private String pais;
 
+    public Endereco(String logradouro, String numero, String cep, String cidade, String estado, String pais) {
+        this.logradouro = logradouro;
+        this.numero = numero;
+        this.cep = cep;
+        this.cidade = cidade;
+        this.estado = estado;
+        this.pais = pais;
+    }
+
     public void setLogradouro(String logradouro) {
         this.logradouro = logradouro;
     }

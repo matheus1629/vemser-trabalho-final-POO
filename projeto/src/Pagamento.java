@@ -4,7 +4,11 @@ public class Pagamento {
     private final Double IGPM = 3.79;
     private Double jurosVenda;
     private Double valorTotal;
-    private Double entrada;
+    private Double entrada = 0.0;
+
+    public Pagamento(){
+
+    }
 
     public void calcularValorTotal(Imovel imovel) {
         if (imovel.getStatus().toLowerCase().equals("venda")) {
@@ -67,7 +71,7 @@ public class Pagamento {
     public Double pagar(Imovel imovel){
         setQuantidadeDeParcelasJaPagas(getQuantidadeDeParcelasJaPagas()+1);
         if(imovel.getStatus().toLowerCase()=="venda"){
-            return getValorTotal()/getQuantidadeDeParcelas();
+            return (getValorTotal()-getEntrada())/getQuantidadeDeParcelas();
         } else if (imovel.getStatus().toLowerCase()=="aluguel") {
             return  getValorTotal();
         }

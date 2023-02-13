@@ -11,9 +11,9 @@ public class Contrato{
         this.pagamento = pagamento;
         pagamento.calcularValorTotal(this.imovel);
         if(imovel.getStatus().toLowerCase()=="aluguel"){
-            corretor.fecharContratoAluguel(imovel);
+            corretor.fecharContratoAluguel(this);
         } else if (imovel.getStatus().toLowerCase()=="venda") {
-            corretor.fecharContratoVenda(imovel);
+            corretor.fecharContratoVenda(this);
         }
         cliente.contratar(this);
         imovel.setDisponibilidade(false);
