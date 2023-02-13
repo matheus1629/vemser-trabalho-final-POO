@@ -38,6 +38,7 @@ public class Administracao implements Financeiro,Impressao {
             totalVendido += listaValorTotal.getPagamento().getValorTotal();
         }
 
+        System.out.println(totalVendido);
         Double totalEntrada = 0.0;
         for (Contrato listaValorTotal : listaContratos) {
             totalEntrada += listaValorTotal.getPagamento().getEntrada();
@@ -82,17 +83,9 @@ public class Administracao implements Financeiro,Impressao {
         return comissao;
     }
 
-//    public void setComissao(Double comissao) {
-//        this.comissao = comissao;
-//    }
-
     public Double getContasAReceber() {
         return contasAReceber;
     }
-
-//    public void setContasAReceber(Double contasAReceber) {
-//        this.contasAReceber = contasAReceber;
-//    }
 
     public void cadastrarNovoImovel(Imovel imovel){
         incluirNovoImovel(imovel);

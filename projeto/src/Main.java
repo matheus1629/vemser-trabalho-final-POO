@@ -14,17 +14,20 @@ public class Main {
         Pagamento pagamento1 = new Pagamento();
         pagamento1.setEntrada(50000.0);
         pagamento1.setJurosVenda(3.98);
-        pagamento1.setQuantidadeDeParcelas(72);
+        pagamento1.setQuantidadeDeParcelas(3);
         Contrato contratoTesteVenda = new Contrato(imovelTesteVenda,corretor1,cliente1,pagamento1);
         adm.incluirNovoContrato(contratoTesteVenda);
-        Pagamento pagamento2 = new Pagamento();
-        pagamento2.setQuantidadeDeParcelas(12);
-        Contrato contratoTesteAluguel = new Contrato(imovelTesteAluguel,corretor1,cliente1,pagamento2);
-        adm.incluirNovoContrato(contratoTesteAluguel);
-//        cliente1.imprimirResumo();
+//        Pagamento pagamento2 = new Pagamento();
+//        pagamento2.setQuantidadeDeParcelas(12);
+//        Contrato contratoTesteAluguel = new Contrato(imovelTesteAluguel,corretor1,cliente1,pagamento2);
+//        adm.incluirNovoContrato(contratoTesteAluguel);
+
+        cliente1.imprimirResumo();
+        cliente1.pagarParcela();
+        cliente1.imprimirResumo();
+        cliente1.pagarParcela();
+        cliente1.imprimirResumo();
         corretor1.imprimirResumo();
-        System.out.println(adm.getListaContratos().size());
-        System.out.println(adm.calcularTotalComissao());
 //        System.out.println(adm.calcularContasAReceber());
 
 

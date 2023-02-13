@@ -71,7 +71,7 @@ public class Pagamento {
     public Double pagar(Imovel imovel){
         setQuantidadeDeParcelasJaPagas(getQuantidadeDeParcelasJaPagas()+1);
         if(imovel.getStatus().toLowerCase()=="venda"){
-            return getValorTotal()/getQuantidadeDeParcelas();
+            return (getValorTotal()-getEntrada())/getQuantidadeDeParcelas();
         } else if (imovel.getStatus().toLowerCase()=="aluguel") {
             return  getValorTotal();
         }

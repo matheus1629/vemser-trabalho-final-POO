@@ -30,6 +30,11 @@ public class Cliente extends Usuario implements Impressao{
         this.contratos.add(contrato);
         this.boletos.add(contrato.getPagamento().pagar(contrato.getImovel()));
     }
+    public void pagarParcela(){
+        for (Contrato contrato:contratos) {
+            this.boletos.add(contrato.getPagamento().pagar(contrato.getImovel()));
+        }
+    }
 
     @Override
     public void imprimirResumo() {
@@ -46,7 +51,7 @@ public class Cliente extends Usuario implements Impressao{
         for (Contrato contrato:contratos) {
             if(contrato.getImovel().getStatus().toLowerCase()=="venda"){
                 System.out.println("Imóvel "+ contrato.getImovel().getCodigo()+" - R$"+contrato.getPagamento().getValorTotal()+" com juros");
-                System.out.println("Valor já pago: Entrada R$"+contrato.getPagamento().getEntrada()+" Parcelas pagas R$"+ (contrato.getPagamento().getQuantidadeDeParcelasJaPagas()*contrato.getPagamento().getValorTotal()/contrato.getPagamento().getQuantidadeDeParcelas()));
+                System.out.println("Valor já pago: Entrada R$"+contrato.getPagamento().getEntrada()+" Parcelas pagas R$"+ (contrato.getPagamento().getQuantidadeDeParcelasJaPagas()*(contrato.getPagamento().getValorTotal()-contrato.getPagamento().getEntrada())/contrato.getPagamento().getQuantidadeDeParcelas()));
                 System.out.println("=====================");
             }
         }
