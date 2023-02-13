@@ -6,7 +6,7 @@ public class Pagamento {
     private Double valorTotal;
     private Double entrada = 0.0;
 
-    public Pagamento(){
+    public Pagamento() {
 
     }
 
@@ -30,14 +30,6 @@ public class Pagamento {
 
     public void setQuantidadeDeParcelas(Integer quantidadeDeParcelas) {
         this.quantidadeDeParcelas = quantidadeDeParcelas;
-    }
-
-    public Double getIGPM() {
-        return IGPM;
-    }
-
-    public Double getJurosVenda() {
-        return jurosVenda;
     }
 
     public void setJurosVenda(Double jurosVenda) {
@@ -68,12 +60,12 @@ public class Pagamento {
         this.quantidadeDeParcelasJaPagas = quantidadeDeParcelasJaPagas;
     }
 
-    public Double pagar(Imovel imovel){
-        setQuantidadeDeParcelasJaPagas(getQuantidadeDeParcelasJaPagas()+1);
-        if(imovel.getStatus().toLowerCase()=="venda"){
-            return (getValorTotal()-getEntrada())/getQuantidadeDeParcelas();
-        } else if (imovel.getStatus().toLowerCase()=="aluguel") {
-            return  getValorTotal();
+    public Double pagar(Imovel imovel) {
+        setQuantidadeDeParcelasJaPagas(getQuantidadeDeParcelasJaPagas() + 1);
+        if (imovel.getStatus().toLowerCase() == "venda") {
+            return (getValorTotal() - getEntrada()) / getQuantidadeDeParcelas();
+        } else if (imovel.getStatus().toLowerCase() == "aluguel") {
+            return getValorTotal();
         }
         return 0.0;
     }

@@ -2,13 +2,16 @@ public class Imovel {
     private Endereco endereco;
     private boolean disponibilidade;
     private int quantidadeDeComodos;
-    private int area;
     private int codigo;
     private Double valor;
     private String status;
 
-    public Imovel(){};
-    public Imovel(Endereco endereco,int codigo, Double valor, String status) {
+    public Imovel() {
+    }
+
+    ;
+
+    public Imovel(Endereco endereco, int codigo, Double valor, String status) {
         this.endereco = endereco;
         this.disponibilidade = true;
         this.codigo = codigo;
@@ -19,12 +22,15 @@ public class Imovel {
     public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
     }
+
     public void setQuantidadeDeComodos(int quantidadeDeComodos) {
         this.quantidadeDeComodos = quantidadeDeComodos;
     }
+
     public Endereco getEndereco() {
         return endereco;
     }
+
     public int getQuantidadeDeComodos() {
         return quantidadeDeComodos;
     }
@@ -61,11 +67,4 @@ public class Imovel {
         this.disponibilidade = disponibilidade;
     }
 
-    public int getArea() {
-        return area;
-    }
-
-    public void setArea(int area) {
-        this.area = area;
-    }
 }

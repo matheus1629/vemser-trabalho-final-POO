@@ -1,4 +1,4 @@
-public class Contrato{
+public class Contrato {
     private Imovel imovel;
     private Corretor corretor;
     private Cliente cliente;
@@ -10,9 +10,9 @@ public class Contrato{
         this.cliente = cliente;
         this.pagamento = pagamento;
         pagamento.calcularValorTotal(this.imovel);
-        if(imovel.getStatus().toLowerCase()=="aluguel"){
+        if (imovel.getStatus().toLowerCase() == "aluguel") {
             corretor.fecharContratoAluguel(this);
-        } else if (imovel.getStatus().toLowerCase()=="venda") {
+        } else if (imovel.getStatus().toLowerCase() == "venda") {
             corretor.fecharContratoVenda(this);
         }
         cliente.contratar(this);
@@ -41,16 +41,12 @@ public class Contrato{
 
         imovel.setDisponibilidade(false);
     }
-
-    public Corretor getCorretor() {
-        return corretor;
-    }
-
+    
     public void setCorretor(Corretor corretor) {
         this.corretor = corretor;
-        if(this.imovel.getStatus().toLowerCase()=="aluguel"){
+        if (this.imovel.getStatus().toLowerCase() == "aluguel") {
             corretor.fecharContratoAluguel(this);
-        } else if (this.imovel.getStatus().toLowerCase()=="venda") {
+        } else if (this.imovel.getStatus().toLowerCase() == "venda") {
             corretor.fecharContratoVenda(this);
         }
     }
