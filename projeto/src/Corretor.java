@@ -27,7 +27,7 @@ public class Corretor extends Usuario implements Impressao{
         this.imoveisVenda.add(imovelVenda);
     }
 
-    public void setComissao() {
+    private void setComissao() {
         this.comissao = 0.0;
         for (Imovel imovel: imoveisAluguel) {
             comissao+=imovel.getValor()*0.2;
@@ -56,12 +56,12 @@ public class Corretor extends Usuario implements Impressao{
         this.contratos.add(contrato);
     }
 
-    void fecharContratoAluguel(Contrato contrato){
+    public void fecharContratoAluguel(Contrato contrato){
         incluirContrato(contrato);
         setImovelAluguel(contrato.getImovel());
         setComissao();
     }
-    void fecharContratoVenda(Contrato contrato){
+    public void fecharContratoVenda(Contrato contrato){
         incluirContrato(contrato);
         setImovelVenda(contrato.getImovel());
         setComissao();
