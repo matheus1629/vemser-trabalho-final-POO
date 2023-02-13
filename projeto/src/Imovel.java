@@ -59,4 +59,12 @@ public class Imovel {
     public void setDisponibilidade(boolean disponibilidade) {
         this.disponibilidade = disponibilidade;
     }
+
+    public int getArea() {
+        return area;
+    }
+
+    public void setArea(int area) {
+        this.area = area;
+    }
 }

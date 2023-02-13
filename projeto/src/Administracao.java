@@ -105,7 +105,7 @@ public class Administracao implements Financeiro,Impressao {
 
     @Override
     public void imprimirResumo() {
-        System.out.println("Meus imóveis disponíveis: ");
+        System.out.println("Imóveis disponíveis: ");
         for (Imovel imovel: listaImoveis) {
             if(imovel.getDisponibilidade()){
                 System.out.println("Imóvel "+imovel.getCodigo()+" disponível para "+imovel.getStatus());

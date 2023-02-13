@@ -18,8 +18,8 @@ public class BancoDeDados {
     public void removerCorretor(Integer index){
         this.listaDeCorretores.remove(index.intValue());
     }
-    public void removerCliente(Integer index){
-        this.listaDeClientes.remove(index.intValue());
+    public void removerCliente(Cliente cliente){
+        this.listaDeClientes.remove(cliente);
     }
     public void removerImovel(Integer index){this.listaDeImoveis.remove(index.intValue());}
 
@@ -40,7 +40,7 @@ public class BancoDeDados {
     public void editarCorretor(Integer index,Corretor corretor){
         Corretor buscaCorretor = listaDeCorretores.get(index);
         buscaCorretor.setNome(corretor.getNome());
-        buscaCorretor.setIdentificacao(corretor.getIdentificacao());
+        buscaCorretor.setCpf(corretor.getCpf());
     }
 
     public void listarClientes() {
@@ -64,5 +64,7 @@ public class BancoDeDados {
         }
     }
 
-
+    public List<Cliente> getListaDeClientes() {
+        return listaDeClientes;
+    }
 }

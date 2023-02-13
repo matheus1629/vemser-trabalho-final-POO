@@ -7,6 +7,7 @@ public abstract class Usuario {
     private String senha;
     private String tipo;
 
+    public Usuario(){};
     public Usuario(String nome, String cpf, Contato contato, String loginUsuario, String senha, String tipo) {
         this.nome = nome;
         this.cpf = cpf;

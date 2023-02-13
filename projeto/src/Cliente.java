@@ -5,13 +5,14 @@ public class Cliente extends Usuario implements Impressao{
     private List<Double> boletos = new ArrayList<>();
     private List<Contrato> contratos = new ArrayList<>();
 
+    public Cliente(){};
     public Cliente(String nome, String cpf, Contato contato, String loginUsuario, String senha){
         super(nome, cpf,contato,loginUsuario,senha,"Cliente");
 
     }
-    public Cliente verificaCliente(List<Cliente>clientes, String loginUsuario, String senha){
+    public static Cliente verificaCliente(List<Cliente>clientes, String loginUsuario, String senha){
         for (Cliente cliente:clientes) {
-            if(cliente.getSenha()==senha&&cliente.getLoginUsuario()==loginUsuario){
+            if(cliente.getSenha().equals(senha) && cliente.getLoginUsuario().equals(loginUsuario)){
                 return cliente;
             }
         };
