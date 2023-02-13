@@ -11,7 +11,7 @@ public class Corretor extends Usuario implements Impressao{
     public Corretor(String nome, String cpf, Contato contato, String loginUsuario, String senha) {
         super(nome, cpf, contato, loginUsuario, senha, "Corretor");
     }
-    public static Corretor verificaCorretor(List<Corretor>corretores, String loginUsuario, String senha){
+    public static Corretor verificarCorretor(List<Corretor>corretores, String loginUsuario, String senha){
         for (Corretor corretor:corretores) {
             if(corretor.getSenha().equals(senha)&&corretor.getLoginUsuario().equals(loginUsuario)){
                 return corretor;
